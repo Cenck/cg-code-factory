@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration  scan="true" scanPeriod="180 seconds">
+
+    <contextName>logback</contextName>
+
+    <!-- log name -->
+    <property name="LOG_HOME" value="${logPath}"/>
+    <!-- back log base path -->
+    <property name="LOG_BACK_HOME" value="${logPath}/backup"/>
+    <!-- 服务名 -->
+    <property name="SRVNAME" value="${serviceName}"/>
+    <!-- 文件切割大小 -->
+    <property name="maxFileSize" value="20MB"/>
+    <!-- 文档保留天数 -->
+    <property name="maxHistory" value="60"/>
+    <!-- 文档保留总大小 -->
+    <property name="totalSizeCap" value="10GB"/>
+
+
+    <!-- 日志格式 -->
+    <!-- lots的日志输出格式 -->
+    <property name="LOTS_PATTERN" value="%boldCyan(%d{yyyy-MM-dd HH:mm:ss.SSS}) - %boldRed(%5p) %blue([%10.10t]) %magenta(%-35.35logger{20})  %yellow(%2M) %green(%2L) : %msg%n" />
+
+    <!-- 控制台输出日志 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOTS_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 日志输出级别 -->
+    <root level="info">
+        <appender-ref ref="console"/>
+    </root>
+    <logger name="tk.mybatis" level="debug" additivity="false">
+        <appender-ref ref="console"/>
+    </logger>
+    <logger name="com.weiare" level="debug" additivity="false">
+        <appender-ref ref="console"/>
+    </logger>
+
+
+</configuration>

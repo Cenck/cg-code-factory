@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.cengel.frame</groupId>
+    <artifactId>cg-code-factory</artifactId>
+    <version>2.0.0</version>
+    <packaging>jar</packaging>
+    <name>code factory</name>
+    <properties>
+
+        <!--project-->
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!--spring -->
+        <spring.version>5.0.5.RELEASE</spring.version>
+        <spring-boot.version>2.0.3.RELEASE</spring-boot.version>
+        <spring-cloud.version>1.3.5.RELEASE</spring-cloud.version>
+        <spring-cloud.version2>1.3.3.RELEASE</spring-cloud.version2>
+        <dubbo-spring-boot.version>0.2.0</dubbo-spring-boot.version>
+
+
+        <!--jdbc-->
+        <mysql.version>8.0.12</mysql.version>
+        <mybatis.version>3.4.5</mybatis.version>
+        <hibernate.version>5.0.12.Final</hibernate.version>
+        <druid.version>1.1.10</druid.version>
+
+
+        <!--apache-->
+        <apache.ant.version>1.7.1</apache.ant.version>
+        <apache.commons.version>3.6</apache.commons.version>
+
+        <!--javax-->
+        <javax.servlet.version>4.0.1</javax.servlet.version>
+        <javax.persistence.version>2.2.1</javax.persistence.version>
+
+        <!--other-->
+        <junit.version>4.12</junit.version>
+        <lombok.version>1.16.20</lombok.version>
+        <kotlin.version>1.2.60</kotlin.version>
+        <log4j.version>1.2.17</log4j.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <yaml.snake.version>1.21</yaml.snake.version>
+        <jackson.version>2.9.3</jackson.version>
+        <codehaus.jackson.version>1.9.13</codehaus.jackson.version>
+        <cglib.version>3.2.2</cglib.version>
+        <jedis.version>2.9.0</jedis.version>
+        <sitemesh.version>3.0.1</sitemesh.version>
+        <freemarker.version>2.3.28</freemarker.version>
+        <org.aspectj.version>1.8.13</org.aspectj.version>
+
+    </properties>
+    <dependencies>
+
+        <dependency>
+            <groupId>com.xiaoleilu</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>3.0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.20</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>${freemarker.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>${spring-boot.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.5</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- 编译插件 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <!-- <version>2.5.1</version> -->
+                    <version>3.6.1</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <showWarnings>true</showWarnings>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <finalName>${project.artifactId}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+    </build>
+
+</project>

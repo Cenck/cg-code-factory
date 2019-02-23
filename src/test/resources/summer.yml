@@ -1,0 +1,29 @@
+summer:
+  #jdbc连接池
+  datasource:
+    url: jdbc:mysql://47.98.169.89:3306/cg_lab?useUnicode=true&characterEncoding=UTF8
+    schema: cg_lab
+    username: chengel
+    password: '123456'
+    driverName: com.mysql.jdbc.Driver
+  codefactory:
+    # 类型转换
+    typeconverter:
+        Long-INTEGER: BIGINT,INTEGER
+        Integer-INTEGER: SMALLINT,TINYINT,INT
+        java.math.BigDecimal-DECIMAL: DOUBLE,FLOAT,DECIMAL,NUMERIC
+        String-VARCHAR: VARCHAR,NVARCHAR,CHAR,TINYTEXT,TEXT,MEDIUMTEXT,LONGTEXT,BLOB
+        java.util.Date-TIMESTAMP: DATETIME,DATE,TIME,TIMESTAMP
+        boolean-BOOLEAN: BOOLEAN
+    #项目名 /templates/hibernate
+    project:
+        name: hibernate
+        templates:
+            - {name: entity, temPath: entity/entity, pkg: entity, fileNameSuffix: .java}
+            - {name: service, temPath: service/service, pkg: service, fileNameSuffix: Service.java}
+            - {name: serviceImpl, temPath: service/serviceImpl, pkg: service/impl, fileNameSuffix: ServiceImpl.java}
+            - {name: controller, temPath: controller/controller, pkg: controller, fileNameSuffix: Controller.java}
+            - {name: listTemp, temPath: web-template/temp-list, pkg:  /, fileNameSuffix: -list.html}
+            - {name: addTemp, temPath: web-template/temp-add, pkg:  /, fileNameSuffix: -add.html}
+
+
